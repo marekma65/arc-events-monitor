@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arc Events Monitor
 
-## Getting Started
+A real-time explorer and toolkit for Arc Testnet. Built by **wija** while exploring the Arc blockchain ecosystem.
 
-First, run the development server:
+## What it does
 
+- 📡 **Live Feed** — Real-time transaction feed showing latest blocks and transfers on Arc Testnet
+- ⛽ **Gas Calculator** — Compare transaction costs between Arc and Ethereum. See how much you save.
+- 👛 **Wallet Checker** — Check any wallet's USDC and EURC balances on Arc Testnet
+- 📤 **Batch Sender** — Send USDC to multiple addresses at once using a simple CSV format
+- 🔍 **Tx Decoder** — Decode any Arc transaction and understand what happened in plain English
+
+## Built with
+
+- [Next.js](https://nextjs.org/)
+- [Wagmi](https://wagmi.sh/) + [Viem](https://viem.sh/)
+- [RainbowKit](https://www.rainbowkit.com/)
+- [Arc Testnet](https://docs.arc.network/)
+
+## Getting started
+
+1. Clone the repo
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/marekma65/arc-events-monitor.git
+   cd arc-events-monitor
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+   npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Add your WalletConnect Project ID in `lib/wagmi-config.ts`
+```ts
+   projectId: "YOUR_PROJECT_ID"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the app
+```bash
+   npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## Live demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[arc-events-monitor.vercel.app](https://arc-events-monitor.vercel.app)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Network
 
-## Deploy on Vercel
+Arc Testnet — Chain ID: 5042002 — Explorer: [testnet.arcscan.app](https://testnet.arcscan.app)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- No backend required — reads directly from Arc RPC
+- No private keys needed for Live Feed, Gas Calculator, Wallet Checker and Tx Decoder
+- Batch Sender and requires a connected wallet
+- Get free testnet USDC from [Circle Faucet](https://faucet.circle.com/)
