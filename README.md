@@ -54,5 +54,5 @@ Arc Testnet — Chain ID: 5042002 — Explorer: [testnet.arcscan.app](https://te
 
 - No backend required — reads directly from Arc RPC
 - No private keys needed for Live Feed, Gas Calculator, Wallet Checker and Tx Decoder
-- Batch Sender and requires a connected wallet
+- Batch Sender requires a connected wallet
 - Get free testnet USDC from [Circle Faucet](https://faucet.circle.com/)
