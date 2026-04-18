@@ -65,9 +65,9 @@ export default function TxDecoder() {
       }
 
       const gasUsed = receipt.gasUsed;
-      const gasPrice = tx.gasPrice ?? 0n;
+      const gasPrice = tx.gasPrice !== null && tx.gasPrice !== undefined ? tx.gasPrice : BigInt(0);
       const feeWei = gasUsed * gasPrice;
-      const feeUsdc = Number(feeWei) / 1e18;
+      const feeUsdc = Number(feeWei.toString()) / 1e18;
 
       setDecoded({
         hash: tx.hash,
@@ -125,7 +125,6 @@ export default function TxDecoder() {
       {decoded && (
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
 
-          {/* Status Banner */}
           <div style={{ background: decoded.status === "Success" ? "#166534" : "#991B1B", borderRadius: "12px", padding: "14px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ fontSize: "16px", fontWeight: 700, color: "#fff" }}>
               {decoded.status === "Success" ? "✓ Transaction Successful" : "✕ Transaction Failed"}
@@ -133,7 +132,6 @@ export default function TxDecoder() {
             <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.8)" }}>Block #{decoded.blockNumber}</span>
           </div>
 
-          {/* Function */}
           {decoded.functionName && (
             <div style={{ background: "#1E293B", borderRadius: "12px", padding: "16px 20px", border: "1px solid #334155" }}>
               <p style={{ fontSize: "12px", color: "#64748B", margin: "0 0 6px" }}>Function called</p>
@@ -146,7 +144,6 @@ export default function TxDecoder() {
             </div>
           )}
 
-          {/* From / To */}
           <div style={{ background: "#1E293B", borderRadius: "12px", padding: "16px 20px", border: "1px solid #334155" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
               <div>
@@ -160,7 +157,6 @@ export default function TxDecoder() {
             </div>
           </div>
 
-          {/* Fee */}
           <div style={{ background: "#1E293B", borderRadius: "12px", padding: "16px 20px", border: "1px solid #334155", display: "flex", justifyContent: "space-between" }}>
             <div>
               <p style={{ fontSize: "12px", color: "#64748B", margin: "0 0 6px" }}>Transaction fee</p>
